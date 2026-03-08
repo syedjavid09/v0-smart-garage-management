@@ -1,15 +1,17 @@
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Inter, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
+const _inter = Inter({ subsets: ["latin"], variable: '--font-inter' });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'v0 App',
-  description: 'Created with v0',
+  title: 'GaragePro - Smart Garage Management System',
+  description: 'Professional garage management system for auto repair shops. Manage customers, vehicles, job cards, inventory, and billing all in one place.',
   generator: 'v0.app',
+  keywords: ['garage management', 'auto repair', 'vehicle service', 'job cards', 'inventory management'],
   icons: {
     icon: [
       {
@@ -29,15 +31,25 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#1e40af' },
+    { media: '(prefers-color-scheme: dark)', color: '#0f172a' },
+  ],
+  width: 'device-width',
+  initialScale: 1,
+}
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className="font-sans antialiased">
+    <html lang="en" suppressHydrationWarning>
+      <body className="font-sans antialiased min-h-screen">
         {children}
+        <Toaster position="top-right" richColors />
         <Analytics />
       </body>
     </html>
