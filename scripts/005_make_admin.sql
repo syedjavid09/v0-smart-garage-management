@@ -10,4 +10,4 @@
 -- Uncomment and replace 'your-email@example.com' with your actual email
  UPDATE public.profiles 
  SET role = 'admin' 
- WHERE email = 'sameerjavid09@gmail.com';
+ WHERE email = sameerjavid09@gmail.com;
