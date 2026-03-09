@@ -35,7 +35,7 @@ export function VehicleForm({ vehicle, customers, defaultCustomerId }: VehicleFo
     license_plate: vehicle?.license_plate || '',
     vin: vehicle?.vin || '',
     color: vehicle?.color || '',
-    mileage: vehicle?.mileage || null,
+    mileage: vehicle?.mileage || '',
     notes: vehicle?.notes || '',
   })
   const router = useRouter()
